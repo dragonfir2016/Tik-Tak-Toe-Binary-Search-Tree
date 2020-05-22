@@ -2,7 +2,7 @@ class Board:
     """
     Class for board representation.
     """
-    def __init__(self, board, last_move, last_m_pos):
+    def __init__(self, board):
         """
         (Board, list, str, tuple) -> NoneType
         Creates a new object of Board class.

@@ -35,7 +35,8 @@ def gen_tree(board):
 def count_wins(tree):
     def recursion(node):
             if not node.left and not node.right:
-                res = node.data.check_state()
+                res = node.data
+                res = res.check_state()
                 if res == 'n':
                     return 1
                 elif res == 'x':
@@ -46,6 +47,8 @@ def count_wins(tree):
                 return recursion(node.left) + recursion(node.right)
     return recursion(tree.root)
     
-
-#tr = gen_tree(Board([[0,0 ,0], [0,0,0], [0,0,0]],1,2))
-#print(count_wins(tr))
+if __name__ == "__main__":
+    
+   tr = gen_tree(Board([[0,0 ,0], [0,0,0], [0,0,0]]))
+   print(count_wins(tr))
+   print(tr)
