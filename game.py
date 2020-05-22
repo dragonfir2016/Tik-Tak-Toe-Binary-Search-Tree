@@ -39,6 +39,7 @@ So now let us start, you will make the first move.""")
             right_input = False
             pl_move = input('Please enter your move: ').replace(',', ' ')
             pl_move = pl_move.split(' ')
+
             while not right_input:
                 try:
                     post = (int(pl_move[0]), int(pl_move[1]))
@@ -48,7 +49,9 @@ So now let us start, you will make the first move.""")
                 except:
                     pl_move = input('Please enter valid move: ')
                     pl_move = pl_move.replace(',', ' ').split(' ')
+
             self.board.board[post[0]][post[1]] = 'x'
+
             print(f'Board after {move} move:')
             print(self.board)
             move += 1
@@ -57,6 +60,7 @@ So now let us start, you will make the first move.""")
                 print('-----------------------------------')
                 print(f'Hooray, {win} wins.')
                 break
+
             comp_tree = gen_tree(self.board)
             tree_left = LinkedBT()
             tree_left.root = comp_tree.root.left
@@ -64,6 +68,7 @@ So now let us start, you will make the first move.""")
             tree_right.root = comp_tree.root.right
             left_wins = count_wins(tree_left)
             right_wins = count_wins(tree_right)
+
             if left_wins > right_wins:
                 self.board = tree_left.root.data
             else:
