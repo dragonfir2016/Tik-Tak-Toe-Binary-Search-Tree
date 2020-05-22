@@ -29,12 +29,15 @@ class Game:
 
     def play(self):
         """
+        (Game) -> str
+        Main cycle of the game.
         """
-        print("""This is a game of tic-tac-toe, and you will be playing against computer.
+        print("""
+    This is a game of tic-tac-toe, and you will be playing against computer.
 You will be shown a current board state and after that you will have to enter the postion
 where you want ot make move.
 
-Your next move should be entered in this format: 0 2 , where 0 is a ROW and 2 is a COLUMN.
+    Your next move should be entered in this format: 0 2 , where 0 is a ROW and 2 is a COLUMN.
 
 
 So now let us start, you will make the first move.""")
@@ -81,5 +84,5 @@ So now let us start, you will make the first move.""")
                 break
 
 if __name__ == "__main__":
-    g = Game()
-    g.play()
+    game = Game()
+    game.play()

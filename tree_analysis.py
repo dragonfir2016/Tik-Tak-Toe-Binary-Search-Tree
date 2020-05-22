@@ -7,6 +7,8 @@ import copy
 
 def gen_tree(board):
     """
+    (Board) -> LinkedBT
+    Recursively generates binary tree with possible moves in game.
     """
     tree = LinkedBT()
     tree.add(board)
@@ -28,11 +30,16 @@ def gen_tree(board):
             node.right = BTNode(board_2)
             recursion(node.left, next_move)
             recursion(node.right, next_move)
-    
+
     recursion(tree.root, 'x')
     return tree
 
+
 def count_wins(tree):
+    """
+    (LinkedBT) -> int
+    Counts all winning situations in a tree.
+    """
     def recursion(node):
             if not node.left and not node.right:
                 res = node.data
@@ -46,9 +53,3 @@ def count_wins(tree):
             else:
                 return recursion(node.left) + recursion(node.right)
     return recursion(tree.root)
-    
-if __name__ == "__main__":
-    
-   tr = gen_tree(Board([[0,0 ,0], [0,0,0], [0,0,0]]))
-   print(count_wins(tr))
-   print(tr)
