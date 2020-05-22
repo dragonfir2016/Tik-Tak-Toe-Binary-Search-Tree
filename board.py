@@ -8,8 +8,6 @@ class Board:
         Creates a new object of Board class.
         """
         self.board = board
-        self.last_move = last_move
-        self.last_m_pos = last_m_pos
 
     def check_state(self):
         """
@@ -61,8 +59,11 @@ class Board:
             board += '[' + ' '.join([el if el else '0' for el in self.board[line]]) + ']' + '\n'
         return board[:-1]
 
-
-b = Board([['w','w','s'], ['k','l','x'], ['m',0,'w']], 1, 2)
-print(b)
-print(b.check_state())
-print(b.free_spaces())
+if __name__ == "__main__":
+    b = Board([['w','w','s'], ['k','l','x'], ['m',0,'w']], 1, 2)
+    print(b)
+    print(b.check_state())
+    print(b.free_spaces())
+    k = '(1, 2)'
+    k = (int(k[1]), int(k[4]))
+    print(k)

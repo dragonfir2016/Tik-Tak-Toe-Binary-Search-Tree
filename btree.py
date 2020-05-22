@@ -13,7 +13,7 @@ class LinkedBT(AbstractCollection):
         Sets the initial state of self, which includes the
         contents of sourceCollection, if it's present.
         """
-        self._root = None
+        self.root = None
         AbstractCollection.__init__(self, source_collection)
 
     def __str__(self):
@@ -31,7 +31,7 @@ class LinkedBT(AbstractCollection):
                 s += recurse(node.left, level + 1)
             return s
 
-        return recurse(self._root, 0)
+        return recurse(self.root, 0)
 
     def __iter__(self):
         """
@@ -40,7 +40,7 @@ class LinkedBT(AbstractCollection):
         """
         if not self.isEmpty():
             stack = LinkedStack()
-            stack.push(self._root)
+            stack.push(self.root)
             while not stack.isEmpty():
                 node = stack.pop()
                 yield node.data
@@ -66,7 +66,7 @@ class LinkedBT(AbstractCollection):
                 recurse(node.right)
 
         if self.isEmpty():
-            self._root = BTNode(item)
+            self.root = BTNode(item)
         else:
-            recurse(self._root)
+            recurse(self.root)
         self._size += 1
